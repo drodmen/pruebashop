@@ -14,7 +14,7 @@ import { Shop } from '../models/shop.model';
 export class StatefulComponent implements OnInit {
 
   shopModel: Shop = new Shop();
-  boughtItems: any;
+  boughtItems: Array<Product> = [];
 
   constructor(){  }
 
