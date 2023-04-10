@@ -1,0 +1,14 @@
+
+.card{
+    margin-bottom: 5px;
+}
+@media (min-width: 1000px) {
+    .card-deck {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+    .card{
+        width: 30%;
+    }
+}

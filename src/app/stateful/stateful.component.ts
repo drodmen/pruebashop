@@ -17,9 +17,16 @@ export class StatefulComponent implements OnInit {
   boughtItems: Array<Product> = [];
 
   constructor(){
+    this.boughtItems = [];
     }
 
   ngOnInit(): void{
+
+  }
+
+
+  clickItem(_curso:any){
+    this.boughtItems.push(_curso);
 
   }
 }

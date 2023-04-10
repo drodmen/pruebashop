@@ -3,10 +3,28 @@
     <h1>Stateful</h1>
     <p class="lead">Ejemplo de componente stateful.</p>
 
-    <ul class="list-group">
-      <li class="list-group-item" *ngFor="let curso of shopModel.shopItems">
-        {{ curso.title }}
-      </li>
-    </ul>
+    <div class="card-deck">
+      <div class="card" *ngFor="let curso of shopModel.shopItems">
+        <img
+          class="card-img-top"
+          src="{{ curso.picture }}"
+          alt="{{ curso.title }}"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ curso.title }}</h5>
+          <p class="card-text">{{ curso.desc }}</p>
+          <p class="card-text">Precio: {{ curso.price }}€</p>
+          <a href="#" class="btn btn-primary" (click)="clickItem(curso)"
+            >Comprar</a
+          >
+        </div>
+      </div>
+    </div>
   </div>
+  <ul class="list-group">
+    <li *ngFor="let boughtItem of boughtItems" class="list-group-item">
+      {{ boughtItem.title }}
+    </li>
+  </ul>
 </main>
+<!-- /.container -->
