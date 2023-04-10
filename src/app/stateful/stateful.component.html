@@ -15,7 +15,12 @@
   <ul class="list-group">
     <li *ngFor="let boughtItem of boughtItems" class="list-group-item">
       {{ boughtItem.title }}
+      <span class="badge badge-primary badge-pill">{{
+        boughtItem.price | currency : "&euro;"
+      }}</span>
+    </li>
+    <li class="list-group-item disabled">
+      <h2>Total: {{ finalPrice() | currency : "&euro;" }}</h2>
     </li>
   </ul>
 </main>
-<!-- /.container -->

@@ -33,4 +33,16 @@ export class StatefulComponent implements OnInit {
   cursoMatriculado(_event: Product){
     this.clickItem(_event);
   }
+
+  finalPrice() {
+    if (this.boughtItems) {
+    return this.boughtItems.reduce(
+      (prev: number, item: Product) => prev + (item.price ?? 0), 0
+    );
+  }else{
+    return 0;
+  }
+ }
+
+
 }
