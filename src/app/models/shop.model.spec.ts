@@ -1,7 +1,7 @@
-import { ShopModel } from './shop.model';
+import { Shop } from './shop.model';
 
 describe('ShopModel', () => {
   it('should create an instance', () => {
-    expect(new ShopModel()).toBeTruthy();
+    expect(new Shop()).toBeTruthy();
   });
 });
