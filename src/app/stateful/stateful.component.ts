@@ -4,6 +4,7 @@ import { Shop } from '../models/shop.model';
 
 
 
+
 @Component({
   selector: 'app-stateful',
   templateUrl: './stateful.component.html',
