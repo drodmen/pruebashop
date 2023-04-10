@@ -30,4 +30,7 @@ export class StatefulComponent implements OnInit {
     this.boughtItems.push(_curso);
 
   }
+  cursoMatriculado(_event: Product){
+    this.clickItem(_event);
+  }
 }

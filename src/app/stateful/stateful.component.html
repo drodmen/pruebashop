@@ -5,7 +5,10 @@
 
     <div class="card-deck">
       <div class="card" *ngFor="let curso of shopModel.shopItems">
-        <app-stateless [product]="curso"></app-stateless>
+        <app-stateless
+          [product]="curso"
+          (cursomatriculado)="cursoMatriculado($event)"
+        ></app-stateless>
       </div>
     </div>
   </div>
