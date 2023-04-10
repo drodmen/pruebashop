@@ -16,7 +16,8 @@ export class StatefulComponent implements OnInit {
   shopModel: Shop = new Shop();
   boughtItems: Array<Product> = [];
 
-  constructor(){  }
+  constructor(){
+    }
 
   ngOnInit(): void{
 
