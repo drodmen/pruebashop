@@ -4,21 +4,8 @@
     <p class="lead">Ejemplo de componente stateful.</p>
 
     <div class="card-deck">
-      <div class="card" *ngFor="let curso of shopModel.shopItems">
-        <img
-          class="card-img-top"
-          src="{{ curso.picture }}"
-          alt="{{ curso.title }}"
-        />
-        <div class="card-body">
-          <h5 class="card-title">{{ curso.title }}</h5>
-          <p class="card-text">{{ curso.desc }}</p>
-          <p class="card-text">Precio: {{ curso.price }}€</p>
-          <a href="#" class="btn btn-primary" (click)="clickItem(curso)"
-            >Comprar</a
-          >
-        </div>
-      </div>
+      <div class="card" *ngFor="let curso of shopModel.shopItems"></div>
+      <app-stateless [product]="curso"></app-stateless>
     </div>
   </div>
   <ul class="list-group">
