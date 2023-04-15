@@ -29,9 +29,20 @@ export class StatefulComponent implements OnInit, AfterViewInit, OnDestroy {
 
     }
 
-  ngOnInit(): void{
-
+    ngOnInit(): void {
+      this.shopSubscription = this.http.get('assets/cursos.json', {observe: 'response'}).subscribe(
+        (respuesta: HttpResponse<any>) => {this.shopModel.shopItems = respuesta.body;},
+        (respuesta: HttpResponse<any>) => {this.errorHttp = true;}
+      );
   }
+
+    ngOnDestroy(): void{
+      // lo invocamos cuando el componente se elimina o se pasa a otro componente (cuando no está en uso)
+      // una vez que no está en uso, se llama a shopSubscription esto está observando todo el rato, pero lo que tenemos que hacer es que
+      // cuando se salga, haga un unsubcribe, lo que hace que no se haga una pérdida de memoria.
+      this.shopSubscription.unsubscribe
+    }
+
 
   ngAfterViewInit(): void {
     this.confirmChild.isDisabled = true;
@@ -56,8 +67,6 @@ export class StatefulComponent implements OnInit, AfterViewInit, OnDestroy {
     return 0;
   }
  }
- ngOnDestroy(): void {
-}
 
 
 }
