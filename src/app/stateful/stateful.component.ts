@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit, OnDestroy } from '@angular/core';
 import { Product } from '../interface/product';
 import { Shop } from '../models/shop.model';
-
-
-
+import { ConfirmComponent } from '../confirm/confirm.component';
+import {HttpClient, HttpResponse} from '@angular/common/http';
+import {Subscription} from 'rxjs'; // permite manejar la suscripción para almacenar el objeto
 
 @Component({
   selector: 'app-stateful',
@@ -12,26 +12,39 @@ import { Shop } from '../models/shop.model';
 })
 
 
-export class StatefulComponent implements OnInit {
+export class StatefulComponent implements OnInit, AfterViewInit, OnDestroy {
+  @ViewChild(ConfirmComponent, {static: false}) confirmChild: ConfirmComponent;
 
-  shopModel: Shop = new Shop();
+  errorHttp: boolean = false;
+  shopModel: any;
   boughtItems: Array<Product> = [];
 
-  constructor(){
+  private shopSubscription: Subscription;
+
+  constructor(private http: HttpClient){
     this.boughtItems = [];
+    this.confirmChild = {} as ConfirmComponent;
+    this.shopSubscription = new Subscription();
+    this.shopModel = {shopItems:[]};
+
     }
 
   ngOnInit(): void{
 
   }
 
+  ngAfterViewInit(): void {
+    this.confirmChild.isDisabled = true;
+  }
 
   clickItem(_curso:any){
     this.boughtItems.push(_curso);
 
+
   }
   cursoMatriculado(_event: Product){
     this.clickItem(_event);
+    this.confirmChild.isDisabled = false;
   }
 
   finalPrice() {
@@ -43,6 +56,8 @@ export class StatefulComponent implements OnInit {
     return 0;
   }
  }
+ ngOnDestroy(): void {
+}
 
 
 }
