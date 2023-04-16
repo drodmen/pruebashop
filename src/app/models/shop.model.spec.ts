@@ -1,6 +1,6 @@
 import { Shop } from './shop.model';
 
-describe('ShopModel', () => {
+describe('Shop.Model', () => {
   it('should create an instance', () => {
     expect(new Shop()).toBeTruthy();
   });
