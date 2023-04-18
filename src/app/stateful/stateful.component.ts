@@ -68,5 +68,9 @@ export class StatefulComponent implements OnInit, AfterViewInit, OnDestroy {
   }
  }
 
+ onConfirm() {
+  alert('Has añadido un nuevo curso')
+ }
+
 
 }

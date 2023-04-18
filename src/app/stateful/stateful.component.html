@@ -24,4 +24,10 @@
     </li>
   </ul>
   <app-confirm></app-confirm>
+  <!-- Le pasamos al componente los datos -->
+  <app-status-cart>
+  [price]="finalPrice()"
+  [shopModel]="shopModel.shopItems" 
+  (add)="onConfirm()"
+  </app-status-cart>
 </main>
